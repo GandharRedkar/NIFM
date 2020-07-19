@@ -24,15 +24,20 @@ void loop() {
   distance = duration * 0.034;
   Serial.print("Distance: ");
   Serial.println(distance);
-  delay(2);
+  delay(100);
 }
 
 void turnTxOn(){
-  digitalWrite(trigTx,HIGH);
+  digitalWrite(trigRx,LOW);
+  digitalWrite(trigTx,LOW);
+
+  delayMicroseconds(2);
+  
   digitalWrite(trigRx,HIGH);
+  digitalWrite(trigTx,HIGH);
   
   delayMicroseconds(10);
 
-  digitalWrite(trigTx,LOW);
   digitalWrite(trigRx,LOW);
+  digitalWrite(trigTx,LOW);
 }
